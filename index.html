@@ -1,263 +1,165 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
 <title>Fit with Adarsh — Adarsh Singh Rajput</title>
-<meta name="description" content="Fit with Adarsh — Personal Training, Diet Plans & Transformations by Adarsh Singh Rajput" />
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-
 <style>
-  :root{
-    --bg: #f4f7f3;
-    --card:#ffffff;
-    --accent:#1f7a3a;
-    --accent-2:#6fbf73;
-    --muted:#6b7a72;
-    --dark:#16221b;
-    --radius:18px;
-    --shadow: 0 10px 30px rgba(20,30,20,0.06);
-    --maxw:980px;
-  }
+:root{
+  --bg:#f4f7f3; --card:#fff; --accent:#1f7a3a; --accent2:#6fbf73;
+  --muted:#6b7a72; --dark:#16221b; --radius:18px; --shadow:0 10px 30px rgba(20,30,20,0.06);
+  --maxw:980px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:'Poppins',system-ui,Arial;background:var(--bg);color:var(--dark);-webkit-font-smoothing:antialiased;line-height:1.6;font-size:16px;}
 
-  *{box-sizing:border-box}
-  html{scroll-behavior:smooth}
-  body{
-    margin:0;
-    font-family:'Poppins',system-ui,Arial;
-    background:var(--bg);
-    color:var(--dark);
-    -webkit-font-smoothing:antialiased;
-    -moz-osx-font-smoothing:grayscale;
-    line-height:1.6;
-    font-size:16px;
-  }
+.wrap{max-width:var(--maxw);margin:0 auto;padding:22px;}
 
-  .wrap{max-width:var(--maxw); margin:0 auto; padding:22px;}
+.hero{ text-align:center;padding:10px 12px 6px;margin-top:8px;}
+.logo-wrap{width:150px;height:150px;margin:0 auto;border-radius:28px;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,var(--accent),var(--accent2));box-shadow:var(--shadow);padding:10px;}
+.logo{width:100px;height:100px;object-fit:cover;border-radius:10px;background:#000}
+.brand{margin-top:14px;font-weight:800;font-size:26px;color:var(--dark)}
+.tag{color:var(--muted);margin-top:6px;font-size:15px}
 
-  /* Sticky top nav (subtle) */
-  header.sticky{
-    position:sticky; top:8px; z-index:50;
-    background:transparent; display:flex; align-items:center; justify-content:center;
-    padding:8px 0;
-  }
-  nav{display:flex; gap:18px; align-items:center; justify-content:center; margin-bottom:6px;}
-  .nav-link{color:var(--muted); font-weight:600; text-decoration:none; padding:8px 10px; border-radius:999px;}
-  .nav-link:hover{color:var(--accent); background:rgba(0,0,0,0.03)}
+/* card */
+section.card{background:var(--card);border-radius:var(--radius);padding:20px;margin:18px 0;box-shadow:var(--shadow);border:1px solid rgba(0,0,0,0.03)}
+h2{font-size:20px;margin:0 0 10px 0;color:var(--accent);font-weight:700}
+p.lead{color:var(--muted);margin:0 0 8px 0;font-size:15px}
 
-  /* Hero */
-  .hero{ text-align:center; padding:10px 12px 6px; margin-top:4px;}
-  .logo-wrap{
-    width:150px; height:150px; margin:0 auto; border-radius:28px;
-    display:flex; align-items:center; justify-content:center;
-    background:linear-gradient(135deg,var(--accent),var(--accent-2));
-    box-shadow:var(--shadow);
-    padding:10px;
-  }
-  .logo{ width:100px; height:100px; object-fit:cover; border-radius:10px; background:#000 }
-  .brand{ margin-top:14px; font-weight:800; font-size:26px; color:var(--dark) }
-  .tag{ color:var(--muted); margin-top:6px; font-size:15px; }
+/* about */
+.about-desc{color:var(--muted);margin-top:8px;font-size:15px;line-height:1.7;text-align:center}
 
-  /* Section card */
-  section.card{
-    background:var(--card); border-radius:var(--radius); padding:20px; margin:18px 0;
-    box-shadow:var(--shadow); border:1px solid rgba(0,0,0,0.03);
-  }
-  h2{ font-size:20px; margin:0 0 10px 0; color:var(--accent); font-weight:700;}
-  p.lead{ color:var(--muted); margin:0 0 8px 0; font-size:15px; }
+/* testimonials slider */
+.slider{position:relative;overflow:hidden;border-radius:12px;padding:8px}
+.slides{display:flex;transition:transform 0.45s ease;}
+.slide{min-width:100%;padding:18px 10px;box-sizing:border-box}
+.test-card{background:linear-gradient(180deg,#fff,#fbfffb);border-radius:12px;padding:18px;box-shadow:var(--shadow);border:1px solid rgba(0,0,0,0.03)}
+.test-text{color:var(--muted);font-size:15px;line-height:1.7;margin-bottom:12px}
+.test-author{font-weight:700;color:var(--dark)}
 
-  /* trainer card */
-  .trainer-card{ text-align:center; padding:10px 8px; }
-  .trainer-name{ font-weight:800; font-size:18px; margin-top:6px; }
-  .trainer-desc{ color:var(--muted); margin-top:8px; font-size:15px; line-height:1.6; }
+/* nav controls */
+.controls{display:flex;gap:8px;justify-content:center;margin-top:12px}
+.ctrl-btn{background:transparent;border:1px solid rgba(0,0,0,0.06);padding:8px 12px;border-radius:999px;cursor:pointer;font-weight:600}
+.ctrl-btn:hover{background:rgba(0,0,0,0.02)}
 
-  /* services list */
-  .services{ display:flex; flex-direction:column; gap:12px; margin-top:6px; }
-  .service{
-    padding:14px; border-radius:12px; background:linear-gradient(180deg,#fff,#f7fff8);
-    display:flex; justify-content:space-between; gap:12px; align-items:center;
-    border:1px solid rgba(0,0,0,0.03);
-  }
-  .service h3{ margin:0; font-size:16px }
-  .service p{ margin:6px 0 0; color:var(--muted); font-size:14px }
+/* services removed from top; keep minimal footer */
+footer{text-align:center;color:var(--muted);font-size:13px;margin:18px 0 40px}
 
-  .btn{
-    background:var(--accent); color:#fff; padding:10px 12px; border-radius:10px; font-weight:700; text-decoration:none;
-  }
-  .btn.secondary{ background:transparent; color:var(--accent); border:1px solid rgba(31,122,58,0.12) }
+/* floating whatsapp */
+.wa{position:fixed;right:16px;bottom:18px;z-index:1000;display:inline-flex;gap:10px;align-items:center;padding:10px 14px;border-radius:40px;background:linear-gradient(90deg,#25D366,#128C7E);color:#fff;font-weight:800;box-shadow:0 12px 40px rgba(10,20,10,0.18)}
+.wa img{width:20px;height:20px}
 
-  /* footer */
-  footer{ text-align:center; color:var(--muted); font-size:13px; margin:18px 0 40px }
-
-  /* floating whatsapp */
-  .wa{
-    position:fixed; right:16px; bottom:18px; z-index:1000;
-    display:inline-flex; gap:10px; align-items:center; padding:10px 14px; border-radius:40px;
-    background:linear-gradient(90deg,#25D366,#128C7E); color:#fff; font-weight:800; box-shadow:0 12px 40px rgba(10,20,10,0.18);
-  }
-  .wa img{ width:20px; height:20px; }
-
-  /* modal */
-  .modal-bg{ display:none; position:fixed; inset:0; align-items:center; justify-content:center; background:rgba(0,0,0,0.45); z-index:1200}
-  .modal{ background:#fff; border-radius:12px; padding:18px; max-width:520px; width:94%; box-shadow:0 20px 60px rgba(10,10,10,0.2) }
-  .modal h4{ margin:0 0 8px; }
-  .modal p{ color:var(--muted); }
-
-  /* responsive tweaks */
-  @media(min-width:900px){
-    .wrap{padding:34px;}
-    .hero{display:flex; align-items:center; gap:22px; text-align:left}
-    .logo-wrap{ width:160px; height:160px; border-radius:24px; padding:14px; }
-    .brand{ font-size:34px }
-    .tag{ font-size:16px }
-    .services{ flex-direction:row }
-    .service{ flex:1; flex-direction:column; align-items:flex-start }
-  }
+/* responsive */
+@media(min-width:900px){
+  .wrap{padding:34px}
+  .hero{display:flex;align-items:center;gap:22px;text-align:left}
+  .logo-wrap{width:160px;height:160px;border-radius:24px;padding:14px}
+  .brand{font-size:34px}
+}
 </style>
 </head>
 <body>
   <div class="wrap">
+    <!-- HERO (clean, centered) -->
+    <section class="hero" id="home" aria-label="Hero">
+      <div class="logo-wrap" aria-hidden="true">
+        <img class="logo" src="https://i.postimg.cc/3wHvkYCK/image-1.png" alt="Fit with Adarsh logo">
+      </div>
+      <div style="margin-top:10px;">
+        <div class="brand">Fit with adarsh</div>
+        <div class="tag">Adarsh Singh Rajput — Certified Fitness Consultant</div>
+      </div>
+    </section>
 
-    <header class="sticky" aria-hidden="false">
-      <nav role="navigation" aria-label="Main">
-        <a class="nav-link" href="#trainer">Trainer</a>
-        <a class="nav-link" href="#plans">Plans</a>
-        <a class="nav-link" href="#transform">Transformations</a>
-        <a class="nav-link" href="#contact">Contact</a>
-      </nav>
-    </header>
+    <!-- ABOUT (was trainer) -->
+    <section id="about" class="card" aria-labelledby="about-heading">
+      <h2 id="about-heading">About Me</h2>
+      <div class="about-desc">
+        Adarsh Singh Rajput — certified fitness consultant specialising in practical workout plans and nutrition coaching for busy people. I design simple, realistic programs that fit your life: assess → plan → execute → track.
+      </div>
+    </section>
 
-    <main>
-      <section class="hero" id="home" aria-label="Hero">
-        <div class="logo-wrap" aria-hidden="true">
-          <img class="logo" src="https://i.postimg.cc/3wHvkYCK/image-1.png" alt="Fit with Adarsh logo">
-        </div>
-        <div style="margin-top:10px;">
-          <div class="brand">Fit with adarsh</div>
-          <div class="tag">Adarsh Singh Rajput — Certified Fitness Consultant</div>
-        </div>
-      </section>
-
-      <section id="trainer" class="card" aria-labelledby="trainer-heading">
-        <h2 id="trainer-heading">Trainer</h2>
-        <div class="trainer-card">
-          <div class="trainer-name">Adarsh Singh Rajput</div>
-          <div class="trainer-desc">Certified fitness consultant specializing in practical workout plans and nutrition coaching for busy people. 5+ years of hands-on experience guiding clients to sustainable transformation.</div>
-        </div>
-      </section>
-
-      <section id="plans" class="card">
-        <h2>Plans & Services</h2>
-        <p class="lead">Choose the service you want — tap to view details and message directly on WhatsApp.</p>
-
-        <div class="services">
-          <div class="service" tabindex="0" role="button" onclick="openModal('m1')">
-            <div>
-              <h3>Personal Training</h3>
-              <p>Custom workouts, weekly follow-ups & coaching.</p>
+    <!-- TESTIMONIALS SLIDER (one review per slide) -->
+    <section id="reviews" class="card" aria-labelledby="reviews-heading">
+      <h2 id="reviews-heading">Client Transformations</h2>
+      <div class="slider" id="slider" aria-roledescription="carousel">
+        <div class="slides" id="slides">
+          <div class="slide">
+            <div class="test-card">
+              <div class="test-text">"Aadarsh sir ki training se mera body transformation hua—sirf 3 mahine mein! Practical plan and great accountability."</div>
+              <div class="test-author">— Rahul, Delhi</div>
             </div>
-            <div><a class="btn" href="javascript:void(0)">View</a></div>
           </div>
 
-          <div class="service" tabindex="0" role="button" onclick="openModal('m2')">
-            <div>
-              <h3>Diet Plans</h3>
-              <p>Practical meal plans for fat loss & muscle gain.</p>
+          <div class="slide">
+            <div class="test-card">
+              <div class="test-text">"Customized diet ne mujhe fit hone mein help kiya. Consistent check-ins and realistic food plans."</div>
+              <div class="test-author">— Priya, Mumbai</div>
             </div>
-            <div><a class="btn" href="javascript:void(0)">View</a></div>
           </div>
 
-          <div class="service" tabindex="0" role="button" onclick="openModal('m3')">
-            <div>
-              <h3>Fitness Consultation</h3>
-              <p>Assessment, habit coaching & progress roadmap.</p>
+          <div class="slide">
+            <div class="test-card">
+              <div class="test-text">"Easy to follow workouts and real progress. Trainer is supportive and practical."</div>
+              <div class="test-author">— Amit, Bengaluru</div>
             </div>
-            <div><a class="btn" href="javascript:void(0)">View</a></div>
           </div>
         </div>
-      </section>
+      </div>
 
-      <section id="transform" class="card">
-        <h2>Transformations</h2>
-        <p class="lead">"I lost 10 kg in 3 months following his plan — practical and sustainable." — Rahul, Delhi</p>
-        <p class="lead" style="margin-top:8px">"Personalized diet and coaching made training simple and effective." — Priya, Mumbai</p>
-      </section>
+      <div class="controls" aria-hidden="false">
+        <button class="ctrl-btn" id="prevBtn" aria-label="Previous review">Prev</button>
+        <button class="ctrl-btn" id="nextBtn" aria-label="Next review">Next</button>
+      </div>
+    </section>
 
-      <section id="contact" class="card">
-        <h2>Contact</h2>
-        <p class="lead">Online & offline coaching · Transformations · Nutrition guidance. Message on WhatsApp for fastest reply.</p>
-        <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:10px;">
-          <a class="btn" href="https://wa.me/919113301085" target="_blank" rel="noreferrer">Message on WhatsApp</a>
-          <a class="btn secondary" href="https://www.instagram.com/fitwith_adarsh1/" target="_blank" rel="noreferrer">Instagram @fitwith_adarsh1</a>
-        </div>
+    <!-- CONTACT (kept simple) -->
+    <section id="contact" class="card">
+      <h2>Contact</h2>
+      <p class="lead">Message on WhatsApp for fastest reply — training, diet plans or consultation.</p>
+      <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:10px;">
+        <a style="background:var(--accent);color:#fff;padding:10px 12px;border-radius:10px;text-decoration:none;font-weight:700" href="https://wa.me/919113301085" target="_blank">Message on WhatsApp</a>
+        <a style="padding:10px 12px;border-radius:10px;text-decoration:none;font-weight:700;border:1px solid rgba(0,0,0,0.06)" href="https://www.instagram.com/fitwith_adarsh1/" target="_blank">Instagram @fitwith_adarsh1</a>
+      </div>
+    </section>
 
-        <div style="margin-top:12px; color:var(--muted); font-size:14px">
-          WhatsApp: <a href="https://wa.me/919113301085" target="_blank">+91 9113301085</a> · Instagram: <a href="https://www.instagram.com/fitwith_adarsh1/" target="_blank">@fitwith_adarsh1</a>
-        </div>
-      </section>
-
-      <footer>© <span id="yr"></span> Fit with adarsh — Adarsh Singh Rajput</footer>
-    </main>
+    <footer>© <span id="yr"></span> Fit with adarsh — Adarsh Singh Rajput</footer>
   </div>
 
-  <!-- Floating Whatsapp -->
+  <!-- WhatsApp floating -->
   <a class="wa" href="https://wa.me/919113301085" target="_blank" aria-label="Chat on WhatsApp">
     <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="" /> Chat on WhatsApp
   </a>
 
-  <!-- Modals -->
-  <div id="m1" class="modal-bg" role="dialog" aria-hidden="true">
-    <div class="modal">
-      <h4>Personal Training</h4>
-      <p>One-on-one coaching, workout plans and weekly follow-ups to keep you accountable and progressing.</p>
-      <div style="display:flex;justify-content:flex-end;gap:10px;margin-top:12px">
-        <a class="btn" href="https://wa.me/919113301085?text=Hi%20I%20want%20Personal%20Training" target="_blank">Message</a>
-        <button class="btn secondary" onclick="closeModal('m1')">Close</button>
-      </div>
-    </div>
-  </div>
-
-  <div id="m2" class="modal-bg" role="dialog" aria-hidden="true">
-    <div class="modal">
-      <h4>Diet Plans</h4>
-      <p>Personalized, practical nutrition plans that suit your routine and goals.</p>
-      <div style="display:flex;justify-content:flex-end;gap:10px;margin-top:12px">
-        <a class="btn" href="https://wa.me/919113301085?text=Hi%20I%20want%20a%20Diet%20Plan" target="_blank">Message</a>
-        <button class="btn secondary" onclick="closeModal('m2')">Close</button>
-      </div>
-    </div>
-  </div>
-
-  <div id="m3" class="modal-bg" role="dialog" aria-hidden="true">
-    <div class="modal">
-      <h4>Fitness Consultation</h4>
-      <p>Assessment, habit changes & a realistic roadmap for sustainable progress.</p>
-      <div style="display:flex;justify-content:flex-end;gap:10px;margin-top:12px">
-        <a class="btn" href="https://wa.me/919113301085?text=Hi%20I%20want%20a%20Consultation" target="_blank">Message</a>
-        <button class="btn secondary" onclick="closeModal('m3')">Close</button>
-      </div>
-    </div>
-  </div>
-
 <script>
   document.getElementById('yr').textContent = new Date().getFullYear();
-  function openModal(id){
-    const el = document.getElementById(id);
-    if(el){ el.style.display='flex'; el.setAttribute('aria-hidden','false'); }
+
+  // Simple slider logic
+  const slidesEl = document.getElementById('slides');
+  const total = slidesEl.children.length;
+  let index = 0;
+  function show(i){
+    index = (i+total)%total;
+    slidesEl.style.transform = 'translateX(' + (-index*100) + '%)';
   }
-  function closeModal(id){
-    const el = document.getElementById(id);
-    if(el){ el.style.display='none'; el.setAttribute('aria-hidden','true'); }
-  }
-  // close modal on backdrop click
-  document.querySelectorAll('.modal-bg').forEach(m=>{
-    m.addEventListener('click', e=>{
-      if(e.target === m) { m.style.display='none'; m.setAttribute('aria-hidden','true'); }
-    });
+  document.getElementById('nextBtn').addEventListener('click', ()=> show(index+1));
+  document.getElementById('prevBtn').addEventListener('click', ()=> show(index-1));
+
+  // auto-play
+  let autoplay = setInterval(()=> show(index+1), 4500);
+  // pause on hover (optional)
+  const slider = document.getElementById('slider');
+  slider.addEventListener('mouseenter', ()=> clearInterval(autoplay));
+  slider.addEventListener('mouseleave', ()=> autoplay = setInterval(()=> show(index+1), 4500));
+
+  // small accessibility: allow left/right arrows
+  window.addEventListener('keydown', (e)=>{
+    if(e.key === 'ArrowRight') show(index+1);
+    if(e.key === 'ArrowLeft') show(index-1);
   });
 </script>
 </body>
 </html>
-  
+   
