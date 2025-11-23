@@ -1,411 +1,358 @@
-﻿<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <meta name="description" content="Fit with adarsh — Personal training, diet plans & fitness consultations by Adarsh Singh Rajput." />
-  <title>Fit with adarsh</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Fit with adarsh — Adarsh Singh Rajput</title>
+<meta name="description" content="Fit with adarsh - Personal training, diet plans & transformations by Adarsh Singh Rajput. Message on WhatsApp to book." />
 
-  <style>
-    :root{
-      --bg:#fbfbf7;
-      --card:#ffffff;
-      --earth1:#6b8e23;
-      --earth2:#b5884a;
-      --muted:#55606a;
-      --maxw:1100px;
-      --radius:12px;
-      --shadow: 0 8px 30px rgba(12,15,20,0.06);
-      --accent-text:#203030;
-    }
-    *{box-sizing:border-box}
-    html,body{
-      height:100%;
-      margin:0;
-      padding:0;
-      font-family: "Helvetica Neue", Arial, sans-serif;
-      background:linear-gradient(180deg,#f5f6f2 0%, #fbfbf7 100%);
-      color:var(--accent-text);
-      -webkit-font-smoothing:antialiased;
-    }
-    a { color:inherit; text-decoration:none; }
-    .wrap{max-width:var(--maxw); margin:24px auto; padding:16px;}
+<style>
+  /* Basic reset */
+  :root{
+    --bg:#fbfdf9;
+    --card:#ffffff;
+    --muted:#6b7a72;
+    --accent:#2f7a3f; /* green */
+    --accent-2:#9bbf64;
+    --shadow: 0 10px 30px rgba(20,30,20,0.06);
+    --radius:14px;
+    --maxw:980px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;
+    font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    background:linear-gradient(180deg,#fbfdf9,#f6f8f4);
+    color:#10221a;
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+    line-height:1.45;
+  }
+  .container{max-width:var(--maxw); margin:0 auto; padding:20px;}
 
-    /* Header */
-    header{
-      display:flex;
-      gap:18px;
-      align-items:center;
-      background:linear-gradient(90deg,var(--earth1),var(--earth2));
-      padding:18px;
-      border-radius:12px;
-      color:#fff;
-      box-shadow:var(--shadow);
-    }
-    .logo{display:flex; align-items:center; gap:12px;}
-    .brand-logo{
-      width:64px;
-      height:64px;
-      object-fit:contain;
-      display:block;
-    }
-    @media (max-width:480px){
-      .brand-logo{width:52px;height:52px;}
-    }
-    .brand{font-weight:800; font-size:20px;}
-    .owner{font-weight:400; font-size:13px; opacity:0.95}
-    .header-right{margin-left:auto; text-align:right;}
-    .header-right .cta{
-      background:rgba(255,255,255,0.12);
-      padding:8px 12px;
-      border-radius:10px;
-      font-weight:700;
-      font-size:13px;
-    }
+  /* Top hero (logo center + title) */
+  .hero{
+    display:flex;
+    gap:16px;
+    align-items:center;
+    flex-direction:column;
+    text-align:center;
+    padding:28px 14px;
+    margin-top:8px;
+  }
+  .logo-wrap{
+    width:130px;
+    height:130px;
+    border-radius:50%;
+    background:linear-gradient(135deg,var(--accent),var(--accent-2));
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    box-shadow:var(--shadow);
+    border-radius:24px;
+    overflow:hidden;
+  }
+  .brand-logo{
+    width:86px;
+    height:86px;
+    object-fit:contain;
+    display:block;
+    border-radius:10px;
+    background:#000000;
+    padding:6px;
+  }
+  .site-title{
+    font-size:20px;
+    font-weight:800;
+    margin-top:12px;
+    letter-spacing:0.2px;
+  }
+  .site-sub{
+    color:var(--muted);
+    margin-top:6px;
+    font-size:14px;
+  }
 
-    /* Navigation */
-    nav{
-      margin-top:12px;
-      display:flex;
-      gap:8px;
-      justify-content:center;
-    }
-    nav a{
-      padding:8px 12px;
-      border-radius:8px;
-      background:transparent;
-      color:var(--muted);
-      font-weight:600;
-    }
-    nav a:hover{
-      background:rgba(0,0,0,0.04);
-      color:var(--earth1);
-    }
+  /* Navigation (sticky top subtle) */
+  nav{
+    position:sticky;
+    top:8px;
+    z-index:30;
+    display:flex;
+    gap:8px;
+    justify-content:center;
+    margin:6px 0 0;
+  }
+  .nav-link{
+    padding:8px 12px;
+    border-radius:999px;
+    background:transparent;
+    color:var(--muted);
+    font-weight:700;
+    cursor:pointer;
+  }
+  .nav-link:hover{ background:rgba(0,0,0,0.03); color:var(--accent) }
 
-    /* Cards */
-    .card{
-      background:var(--card);
-      padding:16px;
-      border-radius:12px;
-      box-shadow:var(--shadow);
-      margin-bottom:16px;
-      border:1px solid rgba(10,10,10,0.03);
-    }
+  /* Sections — vertical full-width stacked single column */
+  section.card{
+    background:var(--card);
+    border-radius:var(--radius);
+    padding:18px;
+    margin:18px 0;
+    box-shadow:var(--shadow);
+    border:1px solid rgba(15,20,15,0.03);
+  }
+  h2{ margin:0 0 8px 0; font-size:18px }
+  p.lead{ color:var(--muted); margin:0 0 8px 0 }
 
-    /* Hero */
-    .hero h1{margin:0; font-size:26px;}
-    .hero p.lead{margin:6px 0 0; color:var(--muted)}
+  /* Trainer small */
+  .trainer{
+    display:flex;
+    gap:12px;
+    align-items:center;
+    flex-direction:column;
+    text-align:center;
+  }
+  .trainer-name{ font-weight:800; font-size:16px }
+  .trainer-desc{ color:var(--muted); font-size:14px; margin-top:6px; max-width:760px }
 
-    /* Trainer */
-    .trainer-brief{
-      display:flex;
-      gap:12px;
-      align-items:center;
-    }
-    .trainer-brief .tag{
-      padding:6px 8px;
-      border-radius:8px;
-      background:linear-gradient(90deg,var(--earth1),var(--earth2));
-      color:#fff;
-      font-weight:700;
-      font-size:13px;
-    }
-    .trainer-brief .desc{
-      color:var(--muted);
-      font-size:14px;
-    }
+  /* Services list (stack, each card full width) */
+  .services { display:flex; flex-direction:column; gap:12px; }
+  .service-item{
+    padding:12px;
+    border-radius:12px;
+    background:linear-gradient(180deg,#fff,#f8fff6);
+    border:1px solid rgba(10,10,10,0.03);
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:12px;
+    cursor:pointer;
+  }
+  .service-item h3{ margin:0; font-size:15px }
+  .service-item p{ margin:4px 0 0; color:var(--muted); font-size:13px }
 
-    /* Services */
-    .services-grid{
-      display:grid;
-      grid-template-columns:repeat(2,1fr);
-      gap:12px;
-    }
-    @media(max-width:700px){
-      .services-grid{
-        display:flex;
-        gap:12px;
-        overflow-x:auto;
-        padding-bottom:6px;
-        -webkit-overflow-scrolling:touch;
-      }
-      .services-grid .service-card{
-        min-width:68%;
-        flex:0 0 auto;
-      }
-    }
-    .service-card{
-      background:linear-gradient(180deg,#fff,#fbfbf7);
-      padding:14px;
-      border-radius:12px;
-      box-shadow:0 6px 18px rgba(14,20,30,0.04);
-      cursor:pointer;
-      border:1px solid rgba(10,10,10,0.03);
-      transition:transform .16s ease, box-shadow .16s ease;
-    }
-    .service-card:hover{
-      transform:translateY(-6px);
-      box-shadow:0 12px 32px rgba(10,20,30,0.07);
-    }
+  /* Transformations/testimonials */
+  .testi { font-style:italic; color:var(--muted) }
 
-    /* Testimonials */
-    .testi{
-      background:linear-gradient(90deg,#fff,#f9fff4);
-      padding:12px;
-      border-radius:10px;
-      border-left:4px solid var(--earth1);
-      margin-bottom:10px;
-      color:var(--muted);
-    }
+  /* Contact card */
+  .contact-links{ display:flex; gap:10px; flex-wrap:wrap; margin-top:10px }
+  .btn{
+    padding:10px 12px; border-radius:10px; font-weight:800; cursor:pointer;
+  }
+  .btn-ws{ background:linear-gradient(90deg,#25D366,#128C7E); color:#fff; border:none }
+  .btn-inst{ background:linear-gradient(90deg,#833AB4,#C13584); color:#fff; border:none }
 
-    /* Contact card bottom */
-    .contact-card{
-      background:linear-gradient(180deg,#fff,#fbfbf7);
-      padding:18px;
-      border-radius:12px;
-      box-shadow:var(--shadow);
-      margin-top:10px;
-      border:1px solid rgba(10,10,10,0.03);
-    }
-    .contact-links{
-      display:flex;
-      flex-direction:column;
-      gap:10px;
-      margin-top:10px;
-    }
-    .contact-links a{
-      padding:10px;
-      border-radius:8px;
-      font-weight:700;
-      text-align:center;
-      color:#fff;
-    }
-    .btn-ws{background:linear-gradient(90deg,#25D366,#128C7E)}
-    .btn-inst{background:linear-gradient(90deg,#833AB4,#C13584)}
+  /* Floating WhatsApp */
+  .floating-ws{
+    position:fixed;
+    right:14px;
+    bottom:16px;
+    z-index:999;
+    display:inline-flex;
+    gap:10px;
+    align-items:center;
+    padding:10px 14px;
+    border-radius:40px;
+    background:linear-gradient(90deg,#25D366,#128C7E);
+    color:#fff; font-weight:800;
+    box-shadow:0 12px 40px rgba(10,20,10,0.22);
+  }
 
-    /* Floating WhatsApp */
-    .whatsapp-btn{
-      position:fixed;
-      right:18px;
-      bottom:18px;
-      z-index:1000;
-      background:linear-gradient(180deg,#25D366,#128C7E);
-      color:#fff;
-      border-radius:50px;
-      padding:12px 16px;
-      display:flex;
-      gap:10px;
-      align-items:center;
-      box-shadow:0 10px 30px rgba(0,0,0,0.18);
-      font-weight:700;
-    }
+  /* Modal (service popup) */
+  .modal-backdrop{
+    position:fixed; inset:0; display:none; align-items:center; justify-content:center;
+    background:rgba(0,0,0,0.45); z-index:1200;
+  }
+  .modal{
+    background:#fff; border-radius:12px; padding:16px; width:92%; max-width:520px; box-shadow:0 18px 50px rgba(10,20,20,0.2)
+  }
+  .modal h4{ margin:0 0 6px 0 }
+  .modal p{ color:var(--muted); margin:0 0 12px 0 }
 
-    footer{
-      margin-top:22px;
-      text-align:center;
-      color:var(--muted);
-      padding-bottom:40px;
-      font-size:13px;
-    }
+  /* Footer small */
+  footer{ text-align:center; color:var(--muted); font-size:13px; margin:18px 0 40px }
 
-    /* Modal */
-    .modal-backdrop{
-      position:fixed;
-      inset:0;
-      background:rgba(0,0,0,0.45);
-      display:none;
-      align-items:center;
-      justify-content:center;
-      z-index:1200;
-    }
-    .modal{
-      background:#fff;
-      width:92%;
-      max-width:640px;
-      border-radius:12px;
-      padding:18px;
-      box-shadow:0 16px 48px rgba(10,12,18,0.3);
-    }
-    .btn{
-      background:var(--earth1);
-      color:#fff;
-      padding:10px 14px;
-      border:none;
-      border-radius:8px;
-      cursor:pointer;
-      font-weight:700;
-    }
-    .btn.ghost{
-      background:transparent;
-      color:var(--muted);
-      border:1px solid rgba(0,0,0,0.2);
-    }
-  </style>
+  /* Responsive tweaks */
+  @media(min-width:820px){
+    .hero{ padding:40px 20px }
+    .logo-wrap{ width:150px; height:150px }
+    .brand-logo{ width:100px; height:100px }
+    .site-title{ font-size:28px }
+    .trainer-desc{ max-width:720px }
+    .service-item{ padding:16px }
+  }
+</style>
 </head>
 <body>
 
-  <div class="wrap">
+<div class="container">
 
-    <!-- Header -->
-    <header>
-      <div class="logo">
-        <img src="https://i.postimg.cc/3wHvkYCK/image-1.png" alt="Fit with adarsh logo" class="brand-logo" />
+  <!-- HERO (logo center + title under it) -->
+  <header class="hero" id="home">
+    <div class="logo-wrap" aria-hidden="true">
+      <!-- Your uploaded logo URL (hosted) -->
+      <img class="brand-logo" src="https://i.postimg.cc/3wHvkYCK/image-1.png" alt="Fit with adarsh logo">
+    </div>
 
-        <div>
-          <div class="brand">Fit with adarsh</div>
-          <div class="owner">Adarsh Singh Rajput — Certified Fitness Consultant</div>
-        </div>
-      </div>
+    <div class="site-title">Fit with adarsh</div>
+    <div class="site-sub">Adarsh Singh Rajput — Certified Fitness Consultant</div>
 
-      <div class="header-right">
-        <div class="cta">Personal Training • Diet Plans • Transformations</div>
-      </div>
-    </header>
-
-    <!-- Navigation -->
-    <nav>
-      <a href="#hero">Home</a>
-      <a href="#trainer">Trainer</a>
-      <a href="#services">Plans</a>
-      <a href="#testimonials">Transformations</a>
-      <a href="#contact">Contact</a>
+    <!-- Simple nav (sticky top) -->
+    <nav role="navigation" aria-label="Main navigation">
+      <a class="nav-link" href="#trainer">Trainer</a>
+      <a class="nav-link" href="#plans">Plans</a>
+      <a class="nav-link" href="#transform">Transformations</a>
+      <a class="nav-link" href="#contact">Contact</a>
     </nav>
+  </header>
 
-    <!-- HERO -->
-    <section class="card hero" id="hero">
-      <h1>Welcome — Fit with adarsh</h1>
-      <p class="lead">I help people lose fat, gain muscle and build sustainable healthy routines. Personalized plans, hands-on coaching and real results.</p>
-    </section>
+  <!-- Trainer Section -->
+  <section id="trainer" class="card">
+    <h2>Trainer</h2>
+    <div class="trainer">
+      <div class="trainer-name">Adarsh Singh Rajput</div>
+      <div class="trainer-desc">Certified fitness consultant specializing in practical workout plans and nutrition coaching for busy people. 5+ years of hands-on experience guiding clients to sustainable transformation.</div>
+    </div>
+  </section>
 
-    <!-- Trainer -->
-    <section class="card" id="trainer">
-      <div class="trainer-brief">
-        <div class="tag">Trainer</div>
+  <!-- Plans / Services -->
+  <section id="plans" class="card">
+    <h2>Plans & Services</h2>
+    <p class="lead">Choose the service you want — tap to view details and message directly on WhatsApp.</p>
+
+    <div class="services" id="servicesList">
+      <div class="service-item" data-title="Personal Training" data-desc="One-on-one coaching, custom workout plans, technique correction and weekly check-ins." data-price="Starts at ₹1000/session">
         <div>
-          <div style="font-weight:700; font-size:16px">Adarsh Singh Rajput</div>
-          <div class="desc">Certified fitness consultant specializing in practical workout plans and nutrition coaching for busy people.</div>
-        </div>
-      </div>
-    </section>
-
-    <!-- About -->
-    <section class="card" id="about">
-      <h3>About Me</h3>
-      <p style="color:var(--muted)">
-        With over 5 years of experience, I design realistic training and nutrition plans that fit into your daily life — so results are sustainable.
-        My approach: assess → plan → execute → track.
-      </p>
-    </section>
-
-    <!-- Services -->
-    <section class="card" id="services">
-      <h3>Plans & Services</h3>
-
-      <div class="services-grid">
-        <div class="service-card" data-title="Personal Training" data-desc="One-on-one coaching, custom workout plans, technique correction and regular check-ins." data-price="Starts at ₹1000/session">
           <h3>Personal Training</h3>
-          <p>Custom workouts & 1:1 coaching.</p>
+          <p>Custom workouts & 1:1 coaching</p>
         </div>
+        <div style="color:var(--accent); font-weight:800">View</div>
+      </div>
 
-        <div class="service-card" data-title="Diet Plans" data-desc="Personalized meal plans — fat loss, muscle gain or maintenance; practical and easy-to-follow." data-price="Custom packages">
+      <div class="service-item" data-title="Diet Plans" data-desc="Personalized meal plans for fat loss, muscle gain or maintenance; practical & easy to follow." data-price="Package pricing">
+        <div>
           <h3>Diet Plans</h3>
-          <p>Nutrition plans tailored to you.</p>
+          <p>Nutrition plans tailored to you</p>
         </div>
+        <div style="color:var(--accent); font-weight:800">View</div>
+      </div>
 
-        <div class="service-card" data-title="Fitness Consultation" data-desc="Detailed assessment, habit coaching, sleep & recovery planning, and a roadmap to reach your fitness goals." data-price="Single consult: ₹499">
+      <div class="service-item" data-title="Fitness Consultation" data-desc="Detailed assessment, habit coaching, sleep & recovery planning and a roadmap for long-term progress." data-price="One-time consult ₹499">
+        <div>
           <h3>Fitness Consultation</h3>
-          <p>Assessment & lifestyle guidance.</p>
+          <p>Assessment & lifestyle guidance</p>
         </div>
-
-        <div class="service-card" data-title="Group Classes" data-desc="Bootcamps, functional training and group sessions for motivation and consistency." data-price="Group rates available">
-          <h3>Group Classes</h3>
-          <p>Bootcamp & group training.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Testimonials -->
-    <section class="card" id="testimonials">
-      <h3>Client Transformations</h3>
-      <div class="testi">"I lost 10 kg in 3 months following his plan — practical and sustainable." — Rahul, Delhi</div>
-      <div class="testi">"Personalized diet and coaching made training simple and effective." — Priya, Mumbai</div>
-    </section>
-
-    <!-- Contact at Bottom -->
-    <section class="contact-card" id="contact">
-      <h3>Contact & Booking</h3>
-      <p style="color:var(--muted)">
-        Online & offline coaching · Transformations · Nutrition guidance  
-        Tap a service above and message me for pricing and availability.
-      </p>
-
-      <div style="margin-top:10px; color:var(--muted); font-size:14px;">
-        <div><strong>WhatsApp:</strong> <a href="https://wa.me/911913301085" target="_blank">+91 9113301085</a></div>
-        <div style="margin-top:6px"><strong>Instagram:</strong> <a href="https://www.instagram.com/fitwith_adarsh1/" target="_blank">@fitwith_adarsh1</a></div>
-      </div>
-
-      <div class="contact-links" style="margin-top:12px;">
-        <a class="btn-ws" href="https://wa.me/911913301085" target="_blank">Message on WhatsApp</a>
-        <a class="btn-inst" href="https://www.instagram.com/fitwith_adarsh1/" target="_blank">Instagram @fitwith_adarsh1</a>
-      </div>
-    </section>
-
-    <footer>
-      © <span id="yr"></span> Fit with adarsh · Built by Adarsh Singh Rajput
-    </footer>
-
-  </div>
-
-  <!-- Floating WhatsApp -->
-  <a class="whatsapp-btn" href="https://wa.me/911913301085" target="_blank">
-    💬 Chat on WhatsApp
-  </a>
-
-  <!-- Modal -->
-  <div id="modal-backdrop" class="modal-backdrop">
-    <div class="modal">
-      <h3 id="modal-title"></h3>
-      <div id="modal-desc" style="color:var(--muted); margin:8px 0;"></div>
-      <div id="modal-price" style="font-weight:700; color:var(--muted); margin-bottom:14px;"></div>
-
-      <div style="display:flex; gap:10px; justify-content:flex-end;">
-        <button class="btn" id="modal-ws">Contact on WhatsApp</button>
-        <button class="btn ghost" id="modal-close">Close</button>
+        <div style="color:var(--accent); font-weight:800">View</div>
       </div>
     </div>
+  </section>
+
+  <!-- Transformations / Testimonials -->
+  <section id="transform" class="card">
+    <h2>Transformations</h2>
+    <div class="testi">"I lost 10 kg in 3 months following his plan — practical and sustainable." — Rahul, Delhi</div>
+    <div class="testi" style="margin-top:10px">"Personalized diet and coaching made training simple and effective." — Priya, Mumbai</div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="card">
+    <h2>Contact & Booking</h2>
+    <p class="lead">Online & offline coaching · Transformations · Nutrition guidance. Message on WhatsApp to get fastest reply.</p>
+
+    <div class="contact-links">
+      <a class="btn btn-ws" href="https://wa.me/911913301085" target="_blank" rel="noreferrer">Message on WhatsApp</a>
+      <a class="btn btn-inst" href="https://www.instagram.com/fitwith_adarsh1/" target="_blank" rel="noreferrer">Instagram @fitwith_adarsh1</a>
+    </div>
+
+    <div style="margin-top:12px; color:var(--muted); font-size:14px">
+      WhatsApp: <a href="https://wa.me/911913301085" target="_blank" rel="noreferrer">+91 9113301085</a> · Instagram: <a href="https://www.instagram.com/fitwith_adarsh1/" target="_blank" rel="noreferrer">@fitwith_adarsh1</a>
+    </div>
+  </section>
+
+  <footer>© <span id="year"></span> Fit with adarsh — Adarsh Singh Rajput</footer>
+</div>
+
+<!-- Floating WhatsApp -->
+<a class="floating-ws" href="https://wa.me/911913301085" target="_blank" rel="noreferrer" aria-label="Chat on WhatsApp">
+  💬 Chat on WhatsApp
+</a>
+
+<!-- Modal for services -->
+<div id="modal-backdrop" class="modal-backdrop" role="dialog" aria-hidden="true">
+  <div class="modal" role="document">
+    <h4 id="modal-title"></h4>
+    <p id="modal-desc"></p>
+    <div id="modal-price" style="font-weight:800; margin-bottom:12px"></div>
+    <div style="display:flex; gap:10px; justify-content:flex-end;">
+      <button class="btn btn-ws" id="modal-ws">Message on WhatsApp</button>
+      <button class="btn" id="modal-close" style="background:transparent; border:1px solid rgba(0,0,0,0.06)">Close</button>
+    </div>
   </div>
+</div>
 
-  <script>
-    document.getElementById('yr').textContent = new Date().getFullYear();
+<script>
+  // footer year
+  document.getElementById('year').textContent = new Date().getFullYear();
 
-    const cards = document.querySelectorAll('.service-card');
-    const backdrop = document.getElementById('modal-backdrop');
-    const mTitle = document.getElementById('modal-title');
-    const mDesc = document.getElementById('modal-desc');
-    const mPrice = document.getElementById('modal-price');
-    const mClose = document.getElementById('modal-close');
-    const mWs = document.getElementById('modal-ws');
+  // modal logic
+  const items = document.querySelectorAll('.service-item');
+  const modal = document.getElementById('modal-backdrop');
+  const mTitle = document.getElementById('modal-title');
+  const mDesc = document.getElementById('modal-desc');
+  const mPrice = document.getElementById('modal-price');
+  const mClose = document.getElementById('modal-close');
+  const mWs = document.getElementById('modal-ws');
 
-    cards.forEach(c => {
-      c.addEventListener('click', () => {
-        const title = c.dataset.title;
-        const desc = c.dataset.desc;
-        const price = c.dataset.price;
-
-        mTitle.textContent = title;
-        mDesc.textContent = desc;
-        mPrice.textContent = price;
-
-        const msg = encodeURIComponent(Hi Adarsh, I want details about: ${title});
-        mWs.onclick = () => window.open(https://wa.me/911913301085?text=${msg}, '_blank');
-
-        backdrop.style.display = "flex";
-      });
+  items.forEach(i=>{
+    i.addEventListener('click', ()=>{
+      const title = i.dataset.title || i.querySelector('h3').textContent;
+      const desc = i.dataset.desc || '';
+      const price = i.dataset.price || '';
+      mTitle.textContent = title;
+      mDesc.textContent = desc;
+      mPrice.textContent = price ? price : '';
+      // whatsapp prefilled
+      const text = encodeURIComponent(Hi Adarsh, I want details about: ${title});
+      mWs.onclick = ()=> window.open(https://wa.me/911913301085?text=${text}, '_blank');
+      modal.style.display = 'flex';
+      modal.setAttribute('aria-hidden','false');
     });
+  });
 
-    mClose.addEventListener('click', () => backdrop.style.display = "none");
-    backdrop.addEventListener('click', e => { if(e.target === backdrop) backdrop.style.display = "none"; });
-  </script>
+  mClose.addEventListener('click', ()=>{
+    modal.style.display = 'none';
+    modal.setAttribute('aria-hidden','true');
+  });
+
+  modal.addEventListener('click', (e)=>{
+    if(e.target === modal){
+      modal.style.display = 'none';
+      modal.setAttribute('aria-hidden','true');
+    }
+  });
+
+  // small accessibility: keyboard close
+  document.addEventListener('keydown', (e)=>{
+    if(e.key === 'Escape'){
+      modal.style.display = 'none';
+      modal.setAttribute('aria-hidden','true');
+    }
+  });
+
+  // optional: make nav links highlight on click
+  const navLinks = document.querySelectorAll('.nav-link');
+  navLinks.forEach(a=>{
+    a.addEventListener('click', (e)=>{
+      // close potential open modal
+      modal.style.display = 'none';
+      // small visual feedback
+      navLinks.forEach(x=>x.style.opacity = '0.65');
+      a.style.opacity = '1';
+    });
+  });
+</script>
 
 </body>
 </html>
