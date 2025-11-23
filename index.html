@@ -31,7 +31,22 @@ p.lead{color:var(--muted);margin:0 0 8px 0;font-size:15px}
 /* about */
 .about-desc{color:var(--muted);margin-top:8px;font-size:15px;line-height:1.7;text-align:center}
 
-/* testimonials slider */
+/* services grid */
+.services-grid{display:grid;grid-template-columns:1fr;gap:14px;margin-top:12px}
+.service-card{display:flex;align-items:flex-start;gap:12px;border-radius:12px;padding:14px;background:linear-gradient(180deg,#fff,#fbfffb);box-shadow:var(--shadow);border:1px solid rgba(0,0,0,0.03)}
+.service-icon{width:54px;height:54px;border-radius:10px;background:linear-gradient(135deg,var(--accent),var(--accent2));display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800}
+.service-body{flex:1}
+.service-title{font-weight:700;color:var(--dark);margin-bottom:6px}
+.service-desc{color:var(--muted);font-size:14px;margin-bottom:8px}
+.service-actions{display:flex;gap:10px}
+
+/* modal */
+.modal-backdrop{position:fixed;inset:0;background:rgba(6,10,6,0.45);display:none;align-items:center;justify-content:center;z-index:1200;padding:20px}
+.modal{background:var(--card);max-width:720px;width:100%;border-radius:12px;padding:18px;box-shadow:0 30px 50px rgba(0,0,0,0.25);position:relative}
+.modal h3{margin:0 0 8px 0}
+.modal .close{position:absolute;right:12px;top:10px;border-radius:8px;border:0;background:transparent;font-size:18px}
+
+/* slider/testimonials */
 .slider{position:relative;overflow:hidden;border-radius:12px;padding:8px}
 .slides{display:flex;transition:transform 0.45s ease;}
 .slide{min-width:100%;padding:18px 10px;box-sizing:border-box}
@@ -44,19 +59,16 @@ p.lead{color:var(--muted);margin:0 0 8px 0;font-size:15px}
 .ctrl-btn{background:transparent;border:1px solid rgba(0,0,0,0.06);padding:8px 12px;border-radius:999px;cursor:pointer;font-weight:600}
 .ctrl-btn:hover{background:rgba(0,0,0,0.02)}
 
-/* services removed from top; keep minimal footer */
+/* footer and whatsapp */
 footer{text-align:center;color:var(--muted);font-size:13px;margin:18px 0 40px}
-
-/* floating whatsapp */
 .wa{position:fixed;right:16px;bottom:18px;z-index:1000;display:inline-flex;gap:10px;align-items:center;padding:10px 14px;border-radius:40px;background:linear-gradient(90deg,#25D366,#128C7E);color:#fff;font-weight:800;box-shadow:0 12px 40px rgba(10,20,10,0.18)}
 .wa img{width:20px;height:20px}
 
 /* responsive */
-@media(min-width:900px){
-  .wrap{padding:34px}
-  .hero{display:flex;align-items:center;gap:22px;text-align:left}
-  .logo-wrap{width:160px;height:160px;border-radius:24px;padding:14px}
+@media(min-width:700px){
+  .services-grid{grid-template-columns:repeat(2,1fr)}
   .brand{font-size:34px}
+  .logo-wrap{width:160px;height:160px;border-radius:24px;padding:14px}
 }
 </style>
 </head>
@@ -67,7 +79,7 @@ footer{text-align:center;color:var(--muted);font-size:13px;margin:18px 0 40px}
       <div class="logo-wrap" aria-hidden="true">
         <img class="logo" src="https://i.postimg.cc/3wHvkYCK/image-1.png" alt="Fit with Adarsh logo">
       </div>
-      <div style="margin-top:10px;">
+      <div style="margin-top:14px;">
         <div class="brand">Fit with adarsh</div>
         <div class="tag">Adarsh Singh Rajput — Certified Fitness Consultant</div>
       </div>
@@ -78,6 +90,53 @@ footer{text-align:center;color:var(--muted);font-size:13px;margin:18px 0 40px}
       <h2 id="about-heading">About Me</h2>
       <div class="about-desc">
         Adarsh Singh Rajput — certified fitness consultant specialising in practical workout plans and nutrition coaching for busy people. I design simple, realistic programs that fit your life: assess → plan → execute → track.
+      </div>
+    </section>
+
+    <!-- PLANS & SERVICES (with modal popups) -->
+    <section id="plans" class="card" aria-labelledby="plans-heading">
+      <h2 id="plans-heading">Plans & Services</h2>
+      <p class="lead">Choose a service — tap <strong>View</strong> to read details and message directly on WhatsApp.</p>
+
+      <div class="services-grid">
+        <!-- Personal Training -->
+        <div class="service-card" role="article">
+          <div class="service-icon">PT</div>
+          <div class="service-body">
+            <div class="service-title">Personal Training</div>
+            <div class="service-desc">Practical workout programs — home or gym, progressive plan for fat loss & muscle gain.</div>
+            <div class="service-actions">
+              <button class="ctrl-btn" data-modal="m-pt">View</button>
+              <a class="ctrl-btn" href="https://wa.me/919113301085" target="_blank">Book</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Diet Plans -->
+        <div class="service-card" role="article">
+          <div class="service-icon">D</div>
+          <div class="service-body">
+            <div class="service-title">Diet Plans</div>
+            <div class="service-desc">Custom meal plans for weight loss, muscle gain or maintenance — realistic & easy to follow.</div>
+            <div class="service-actions">
+              <button class="ctrl-btn" data-modal="m-diet">View</button>
+              <a class="ctrl-btn" href="https://wa.me/919113301085" target="_blank">Order</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Transformations / Group classes -->
+        <div class="service-card" role="article">
+          <div class="service-icon">G</div>
+          <div class="service-body">
+            <div class="service-title">Transformations & Group</div>
+            <div class="service-desc">Bootcamps, group training & long-term transformation programs with progress tracking.</div>
+            <div class="service-actions">
+              <button class="ctrl-btn" data-modal="m-group">View</button>
+              <a class="ctrl-btn" href="https://wa.me/919113301085" target="_blank">Join</a>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -128,6 +187,16 @@ footer{text-align:center;color:var(--muted);font-size:13px;margin:18px 0 40px}
     <footer>© <span id="yr"></span> Fit with adarsh — Adarsh Singh Rajput</footer>
   </div>
 
+  <!-- MODALS (hidden by default) -->
+  <div class="modal-backdrop" id="modal-backdrop" aria-hidden="true">
+    <div class="modal" role="dialog" aria-modal="true" id="modal">
+      <button class="close" id="modal-close" aria-label="Close modal">✕</button>
+      <div id="modal-content">
+        <!-- content injected by JS -->
+      </div>
+    </div>
+  </div>
+
   <!-- WhatsApp floating -->
   <a class="wa" href="https://wa.me/919113301085" target="_blank" aria-label="Chat on WhatsApp">
     <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="" /> Chat on WhatsApp
@@ -136,7 +205,7 @@ footer{text-align:center;color:var(--muted);font-size:13px;margin:18px 0 40px}
 <script>
   document.getElementById('yr').textContent = new Date().getFullYear();
 
-  // Simple slider logic
+  // Slider logic
   const slidesEl = document.getElementById('slides');
   const total = slidesEl.children.length;
   let index = 0;
@@ -146,20 +215,53 @@ footer{text-align:center;color:var(--muted);font-size:13px;margin:18px 0 40px}
   }
   document.getElementById('nextBtn').addEventListener('click', ()=> show(index+1));
   document.getElementById('prevBtn').addEventListener('click', ()=> show(index-1));
-
-  // auto-play
   let autoplay = setInterval(()=> show(index+1), 4500);
-  // pause on hover (optional)
   const slider = document.getElementById('slider');
   slider.addEventListener('mouseenter', ()=> clearInterval(autoplay));
   slider.addEventListener('mouseleave', ()=> autoplay = setInterval(()=> show(index+1), 4500));
+  window.addEventListener('keydown', (e)=>{ if(e.key==='ArrowRight') show(index+1); if(e.key==='ArrowLeft') show(index-1); });
 
-  // small accessibility: allow left/right arrows
-  window.addEventListener('keydown', (e)=>{
-    if(e.key === 'ArrowRight') show(index+1);
-    if(e.key === 'ArrowLeft') show(index-1);
+  // Modal logic
+  const backdrop = document.getElementById('modal-backdrop');
+  const modalEl = document.getElementById('modal');
+  const modalContent = document.getElementById('modal-content');
+  const closeBtn = document.getElementById('modal-close');
+
+  // service modal contents
+  const content = {
+    'm-pt': {
+      title: 'Personal Training',
+      html: '<p><strong>Personal Training</strong> — Customized workout plans: home & gym. Progressive overload, weekly check-ins and adjustments. Sessions: online / offline.</p><ul><li>Goal-based plan</li><li>Video guidance</li><li>Weekly follow-up</li></ul><p><a href="https://wa.me/919113301085" target="_blank">Message on WhatsApp</a></p>'
+    },
+    'm-diet': {
+      title: 'Diet Plans',
+      html: '<p><strong>Diet Plans</strong> — Personalized meal plans (calorie & macro based), grocery-friendly, flexible. Nutrition coaching + 1 month follow-up.</p><ul><li>Custom macro split</li><li>Simple recipes</li><li>Weekly adjustments</li></ul><p><a href="https://wa.me/919113301085" target="_blank">Order via WhatsApp</a></p>'
+    },
+    'm-group': {
+      title: 'Transformations & Group Classes',
+      html: '<p><strong>Group & Transformation</strong> — Bootcamps, group training, and long-term progressive programs with tracking and community support.</p><ul><li>Accountability groups</li><li>Progress tracking</li><li>Monthly check-ins</li></ul><p><a href="https://wa.me/919113301085" target="_blank">Join on WhatsApp</a></p>'
+    }
+  };
+
+  // open modal when service button clicked
+  document.querySelectorAll('[data-modal]').forEach(btn=>{
+    btn.addEventListener('click', (e)=>{
+      const id = btn.getAttribute('data-modal');
+      const d = content[id];
+      modalContent.innerHTML = '<h3>'+d.title+'</h3>' + d.html;
+      backdrop.style.display = 'flex';
+      backdrop.setAttribute('aria-hidden','false');
+    });
   });
+
+  function closeModal(){
+    backdrop.style.display = 'none';
+    backdrop.setAttribute('aria-hidden','true');
+  }
+  closeBtn.addEventListener('click', closeModal);
+  backdrop.addEventListener('click', function(e){ if(e.target === backdrop) closeModal(); });
+  window.addEventListener('keydown', function(e){ if(e.key==='Escape') closeModal(); });
+
 </script>
 </body>
 </html>
-   
